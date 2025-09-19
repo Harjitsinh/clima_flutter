@@ -1,0 +1,43 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.weatherapp"
+    compileSdk = 33  // Explicit SDK version instead of flutter.compileSdkVersion
+    ndkVersion = "21.4.7075529"  // Or your installed NDK version, keep as string
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        // Application ID for your app
+        applicationId = "com.example.weatherapp"
+        // Explicit SDK versions instead of flutter.minSdkVersion and flutter.targetSdkVersion
+        minSdk = 21
+        targetSdk = 33
+        // Versioning for your app
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            // Signing config - keep debug signing for now
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
